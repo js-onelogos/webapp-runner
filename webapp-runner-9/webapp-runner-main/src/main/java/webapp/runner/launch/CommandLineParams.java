@@ -215,6 +215,6 @@ public class CommandLineParams {
 
   @Parameter(
       names = "--remote-ip-valve",
-      description = "Adds the Tomcat RemoteIPValve with default configuration")
-  public boolean remoteIPValve = false;
+      description = "Adds the Tomcat RemoteIpValve with default configuration")
+  public boolean remoteIpValve = false;
 }
