@@ -212,4 +212,9 @@ public class CommandLineParams {
       names = "--access-log-pattern",
       description = "If --access-log is enabled, sets the logging pattern")
   public String accessLogPattern = "common";
+
+  @Parameter(
+      names = "--remote-ip-valve",
+      description = "Adds the Tomcat RemoteIPValve with default configuration")
+  public boolean remoteIPValve = false;
 }
