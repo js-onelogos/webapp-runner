@@ -45,6 +45,7 @@ import org.apache.catalina.startup.Tomcat;
 import org.apache.catalina.users.MemoryUserDatabase;
 import org.apache.catalina.users.MemoryUserDatabaseFactory;
 import org.apache.catalina.valves.ErrorReportValve;
+import org.apache.catalina.valves.RemoteIpValve;
 import org.apache.coyote.AbstractProtocol;
 import org.apache.coyote.ProtocolHandler;
 import org.apache.tomcat.util.descriptor.web.LoginConfig;
@@ -52,6 +53,7 @@ import org.apache.tomcat.util.descriptor.web.SecurityCollection;
 import org.apache.tomcat.util.descriptor.web.SecurityConstraint;
 import org.apache.tomcat.util.scan.StandardJarScanner;
 import webapp.runner.launch.valves.StdoutAccessLogValve;
+
 
 /**
  * This is the main entry point to webapp-runner. Helpers are called to parse the arguments. Tomcat
@@ -304,6 +306,12 @@ public class Main {
       ErrorReportValve valve = new ErrorReportValve();
       valve.setShowReport(false);
       valve.setShowServerInfo(false);
+      host.getPipeline().addValve(valve);
+    }
+
+    if (commandLineParams.remoteIpValve) {
+      Host host = tomcat.getHost();
+      RemoteIpValve valve = new RemoteIpValve();
       host.getPipeline().addValve(valve);
     }
     // start the server
