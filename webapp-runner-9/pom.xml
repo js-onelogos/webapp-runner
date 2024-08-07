@@ -69,7 +69,7 @@
         <tomcat.version>9.0.91</tomcat.version>
         <javadoc.plugin.version>3.7.0</javadoc.plugin.version>
         <nexus-staging.plugin.version>1.7.0</nexus-staging.plugin.version>
-        <testng.version>7.5.1</testng.version>
+        <testng.version>7.10.2</testng.version>
     </properties>
     <dependencies>
         <dependency>
